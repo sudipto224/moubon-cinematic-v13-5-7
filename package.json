@@ -1,0 +1,33 @@
+{
+  "name": "moubon-cinematic-website",
+  "private": true,
+  "version": "13.5.7",
+  "type": "module",
+  "description": "Moubon V13.5.7 — clearer river story cards, automatic tiger scene audio and refined wordmark sizing",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/dev-server.mjs --dist",
+    "check": "node --check src/bee-logo.js && node --check src/story-audio.js && node --check src/shop.js && node --check src/main.js && node --check src/river.js && node --check src/jar.js && node --check src/river-art.js && node --check src/story/scenes.js && node --check src/story/scene-renderer.js && node --check src/utils/device.js && node --check config.js && node --check scripts/build.mjs && node --check scripts/dev-server.mjs && node --check scripts/prelaunch-check.mjs && node --check scripts/shots.mjs && node --check scripts/lighthouse.mjs && node --check scripts/qa.mjs && node --check scripts/river-shots.mjs && node --check scripts/river-qa-helpers.mjs && node --check scripts/verify-story-videos.mjs && node --check tests/v13_3_4.test.mjs && node --check tests/v13_3_5.test.mjs && node --check tests/v13_3_6.test.mjs && node --check tests/v12.test.mjs && node --check tests/v13.test.mjs && node --check tests/v13_1.test.mjs && node --check tests/v13_4.test.mjs && node --check tests/v13_5_6.test.mjs && node --check tests/v13_5_7.test.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "shots": "node scripts/shots.mjs",
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "prelaunch": "node scripts/prelaunch-check.mjs",
+    "qa": "node scripts/qa.mjs",
+    "river:shots": "node scripts/river-shots.mjs",
+    "river:verify-assets": "python scripts/verify-cutouts.py",
+    "river:build-banks": "python scripts/build-bank-world.py",
+    "river:verify-videos": "node scripts/verify-story-videos.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "lighthouse": "13.6.0",
+    "playwright": "1.56.1",
+    "pngjs": "7.0.0"
+  },
+  "dependencies": {
+    "puppeteer-core": "^25.18.1"
+  }
+}

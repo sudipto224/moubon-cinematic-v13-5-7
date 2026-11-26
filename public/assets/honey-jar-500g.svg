@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-label="Moubon honey jar, 500 g">
+<defs>
+  <radialGradient id="bg"><stop stop-color="#244633"/><stop offset="1" stop-color="#061b14"/></radialGradient>
+  <radialGradient id="halo"><stop stop-color="#dba747" stop-opacity=".28"/><stop offset="1" stop-color="#dba747" stop-opacity="0"/></radialGradient>
+  <linearGradient id="honey" x1="0" y1="0" x2="1" y2=".2"><stop stop-color="#8d4b12"/><stop offset=".28" stop-color="#c77d20"/><stop offset=".55" stop-color="#f0bd4c"/><stop offset=".82" stop-color="#c98225"/><stop offset="1" stop-color="#8a4912"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#fff8df" stop-opacity=".52"/><stop offset=".2" stop-color="#fff" stop-opacity=".08"/><stop offset=".75" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#e8f2d8" stop-opacity=".4"/></linearGradient>
+  <linearGradient id="cap" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8d5b1e"/><stop offset=".25" stop-color="#f8dfa0"/><stop offset=".58" stop-color="#c58b2d"/><stop offset="1" stop-color="#7c4d16"/></linearGradient>
+  <linearGradient id="label" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#17442f"/><stop offset="1" stop-color="#08281c"/></linearGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="26"/></filter>
+  <clipPath id="jarClip"><path d="M232 205 H408 V247 C430 259 433 277 433 301 V510 Q433 535 408 535 H232 Q207 535 207 510 V301 C207 277 210 259 232 247 Z"/></clipPath>
+</defs>
+<rect width="640" height="640" fill="url(#bg)"/>
+<ellipse cx="320" cy="565" rx="176" ry="27" fill="#000" opacity=".34"/>
+<ellipse cx="320" cy="335" rx="205" ry="230" fill="url(#halo)" filter="url(#soft)"/>
+<g clip-path="url(#jarClip)">
+  <rect x="207" y="205" width="226" height="330" fill="url(#glass)"/>
+  <rect x="214" y="317" width="212" height="221" fill="url(#honey)"/>
+  <path d="M214 317 Q270.28000000000003 304 320.0 317 T426 317" fill="none" stroke="#ffe29a" stroke-width="4" opacity=".7"/>
+  <path d="M225 280 Q212 350 226 500" fill="none" stroke="#fff9df" stroke-width="12" opacity=".3" stroke-linecap="round"/>
+</g>
+<path d="M232 205 H408 V247 C430 259 433 277 433 301 V510 Q433 535 408 535 H232 Q207 535 207 510 V301 C207 277 210 259 232 247 Z" fill="none" stroke="#f7e6bd" stroke-opacity=".84" stroke-width="6"/>
+<rect x="250" y="169" width="140" height="42" rx="8" fill="url(#cap)" stroke="#f8df9d" stroke-width="3"/>
+<path d="M260 178 H380" stroke="#fff1c4" stroke-width="3" opacity=".7"/>
+<rect x="231" y="353" width="176" height="102" rx="11" fill="url(#label)" stroke="#dcb35d" stroke-width="3"/>
+<path d="M244 366 H394 M244 442 H394" stroke="#d9b568" stroke-opacity=".5"/>
+<g transform="translate(320 379) scale(.32)">
+  <path d="M-22 -4C-38 -29 -54 -24 -48 -8C-43 2 -32 5 -22 2M-4 -6C4 -32 26 -30 27 -15C27 -5 14 1 1 2" fill="#f8e9bf" stroke="#d8ad59" stroke-width="3"/>
+  <ellipse cx="-4" cy="5" rx="25" ry="13" fill="#e8b34c" stroke="#4d341b" stroke-width="4"/>
+  <path d="M-16 -7Q-10 5 -16 17M-3 -8Q3 5 -3 18M10 -5Q15 5 10 15" fill="none" stroke="#4d341b" stroke-width="5"/>
+  <circle cx="22" cy="5" r="12" fill="#302318"/>
+</g>
+<text x="320" y="412" text-anchor="middle" fill="#ffe8ae" font-family="Arial,sans-serif" font-size="23" font-weight="700" letter-spacing="2">MOUBON</text>
+<text x="320" y="432" text-anchor="middle" fill="#d9bd7d" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">WILD HONEY · 500 G</text>
+<path d="M225 521 Q320 543 415 521" fill="none" stroke="#fff1c6" stroke-opacity=".42" stroke-width="3"/>
+</svg>

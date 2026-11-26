@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>মৌবন — Royal Honey Emblem Design Preview</title>
+<meta name="description" content="Standalone design preview of the Royal Honey Emblem for the Bengali brand মৌবন. Sculpted metallic gold typography, flowing golden ornaments, animated honeybees. Preview only — not integrated." />
+<meta name="robots" content="noindex, nofollow" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #061c14;
+    color: #f7efd9;
+    font-family: "Moubon Sans", "Noto Sans Bengali", "Nirmala UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Read-only references to existing Moubon assets (fonts + hero background). */
+  @font-face {
+    font-family: "Moubon Sans";
+    src: url("../public/assets/fonts/noto-sans-bengali-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0-FF, U+980-9FF;
+  }
+  @font-face {
+    font-family: "Moubon Sans";
+    src: url("../public/assets/fonts/noto-sans-bengali-bold.woff2") format("woff2");
+    font-weight: 600 900;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0-FF, U+980-9FF;
+  }
+  @font-face {
+    font-family: "Moubon Display";
+    src: url("../public/assets/fonts/noto-serif-bengali-bold.woff2") format("woff2");
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0-FF, U+980-9FF;
+  }
+
+  .preview-wrap {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Existing Sundarbans hero background (read-only reference). */
+  .bg-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url("../public/assets/hero-painterly.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: saturate(1.06) contrast(1.04);
+  }
+  .bg-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(2, 28, 18, 0.26) 0%,
+      rgba(2, 28, 18, 0.40) 45%,
+      #061c14 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Subtle Sundarbans mist overlay. */
+  .mist {
+    position: absolute;
+    inset: 10% -10% 12%;
+    z-index: 1;
+    background: radial-gradient(ellipse at 63% 45%, rgba(255, 232, 164, 0.18), transparent 47%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: haze 8s ease-in-out infinite alternate;
+  }
+
+  /* Warm golden light behind the emblem. */
+  .golden-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(94vw, 860px);
+    height: min(90vh, 700px);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(232, 179, 63, 0.38) 0%,
+      rgba(156, 101, 29, 0.20) 45%,
+      transparent 72%
+    );
+    filter: blur(44px);
+    z-index: 2;
+    pointer-events: none;
+    animation: glowPulse 7s ease-in-out infinite alternate;
+  }
+
+  /* Emblem composition stage. */
+  .stage {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px clamp(26px, 7vw, 100px) 30px;
+  }
+
+  /* Single SVG holding ornaments + sculpted metallic wordmark. */
+  .emblem-svg {
+    position: relative;
+    z-index: 14;
+    width: min(90vw, 720px);
+    height: clamp(250px, 40vh, 420px);
+    overflow: visible;
+    display: block;
+  }
+
+  .emblem-svg text {
+    font-family: "Moubon Display", "Moubon Sans", "Noto Serif Bengali", "Noto Sans Bengali", serif;
+    font-weight: 800;
+    font-size: 400px;
+  }
+
+  /* Sculpted metallic Bengali wordmark layers (bottom to top). */
+  .layer-shadow { fill: #241506; filter: url(#textShadow); }
+  .layer-bevel  { fill: url(#gradBevel); }
+  .layer-main   { fill: url(#gradMetal); filter: url(#metalEmboss); stroke: #FFF4C9; stroke-width: 1; stroke-opacity: 0.5; }
+  .layer-shine  { fill: url(#gradShine); mix-blend-mode: screen; opacity: 0.85; }
+  .layer-rim    { fill: none; stroke: #FDF3C4; stroke-width: 1.4; stroke-opacity: 0.6; }
+
+  /* Canvas bees fly behind the emblem so they frame the lettering
+     without ever covering the Bengali letters. */
+  .canvas-bees {
+    position: absolute;
+    inset: 0;
+    z-index: 12;
+    pointer-events: none;
+  }
+
+  /* Small prestige label under the emblem. */
+  .badge {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 22;
+    font: 700 11px/1.4 "Moubon Sans", "Moubon Display", Arial, sans-serif;
+    letter-spacing: 0.30em;
+    color: #e8c17a;
+    text-transform: uppercase;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+    opacity: 0.9;
+  }
+
+  @keyframes haze {
+    0% { transform: translateX(-2%) scale(1); opacity: 0.9; }
+    100% { transform: translateX(2%) scale(1.08); opacity: 1.05; }
+  }
+  @keyframes glowPulse {
+    0% { opacity: 0.72; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.14); }
+  }
+
+  /* Responsive scaling of the emblem. */
+  @media (max-width: 768px) {
+    .emblem-svg { width: min(94vw, 700px); height: clamp(170px, 32vh, 260px); }
+    .golden-glow { width: min(92vw, 660px); height: min(88vh, 500px); }
+    .badge { bottom: 22px; font-size: 10px; }
+  }
+  @media (max-width: 420px) {
+    .emblem-svg { width: min(96vw, 560px); height: clamp(140px, 28vh, 210px); }
+    .golden-glow { width: min(94vw, 460px); height: min(88vh, 400px); }
+    .badge { bottom: 18px; font-size: 9px; }
+    .stage { padding-top: 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="preview-wrap">
+  <div class="bg-img"></div>
+  <div class="mist"></div>
+  <div class="golden-glow"></div>
+
+  <div class="stage">
+    <svg class="emblem-svg" viewBox="0 0 1000 760" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Multi-stop metallic gradient: champagne upper &rarr; honey middle &rarr; antique lower bevels -->
+        <linearGradient id="gradMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFF4C9" />
+          <stop offset="22%" stop-color="#F8DF9B" />
+          <stop offset="48%" stop-color="#E8B33F" />
+          <stop offset="74%" stop-color="#D39426" />
+          <stop offset="100%" stop-color="#9C651D" />
+        </linearGradient>
+
+        <!-- Bottom bevel (deep antique gold) -->
+        <linearGradient id="gradBevel" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#9C651D" />
+          <stop offset="100%" stop-color="#5b3810" />
+        </linearGradient>
+
+        <!-- Top champagne highlight -->
+        <linearGradient id="gradShine" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.62" />
+          <stop offset="38%" stop-color="#FFF4C9" stop-opacity="0.42" />
+          <stop offset="100%" stop-color="#F8DF9B" stop-opacity="0" />
+        </linearGradient>
+
+        <!-- Ornament metallic ribbon gradient (bright centre, dark edges) -->
+        <linearGradient id="gradOrnament" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#8a5a16" />
+          <stop offset="44%" stop-color="#FFF4C9" />
+          <stop offset="56%" stop-color="#F8DF9B" />
+          <stop offset="100%" stop-color="#8a5a16" />
+        </linearGradient>
+
+        <!-- Terminal radial gradient for flourish ends -->
+        <radialGradient id="radTerm" cx="50%" cy="50%" r="50%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#FFF4C9" />
+          <stop offset="55%" stop-color="#E8B33F" />
+          <stop offset="100%" stop-color="#8a5a16" />
+        </radialGradient>
+
+        <!-- Taper masks: stroke fades to transparent at both ends -->
+        <linearGradient id="taperY" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="black" />
+          <stop offset="14%" stop-color="white" />
+          <stop offset="86%" stop-color="white" />
+          <stop offset="100%" stop-color="black" />
+        </linearGradient>
+        <linearGradient id="taperX" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="black" />
+          <stop offset="14%" stop-color="white" />
+          <stop offset="86%" stop-color="white" />
+          <stop offset="100%" stop-color="black" />
+        </linearGradient>
+        <mask id="mTaperY"><rect width="100%" height="100%" fill="url(#taperY)" /></mask>
+        <mask id="mTaperX"><rect width="100%" height="100%" fill="url(#taperX)" /></mask>
+
+        <!-- Sculpted emboss / specular lighting -->
+        <filter id="metalEmboss" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur" />
+          <feSpecularLighting
+            in="blur"
+            surfaceScale="4.5"
+            specularConstant="1.35"
+            specularExponent="34"
+            lighting-color="#FFFBE8"
+            result="spec"
+          >
+            <fePointLight x="-560" y="-520" z="620" />
+          </feSpecularLighting>
+          <feComposite in="spec" in2="SourceAlpha" operator="in" result="specComp" />
+          <feComposite in="SourceGraphic" in2="specComp" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+        </filter>
+
+        <!-- Pure depth shadow (offset, blurred, dark) -->
+        <filter id="textShadow" x="-45%" y="-45%" width="190%" height="190%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur" />
+          <feOffset in="blur" dx="6" dy="16" result="offset" />
+          <feFlood flood-color="#000000" flood-opacity="0.6" result="color" />
+          <feComposite in="color" in2="offset" operator="in" />
+        </filter>
+
+        <!-- Ornament depth shadow (offset + blur beneath each ribbon) -->
+        <filter id="ornShadow" x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1.6" result="blur" />
+          <feOffset in="blur" dx="1" dy="2.5" result="offset" />
+          <feFlood flood-color="#000000" flood-opacity="0.5" result="color" />
+          <feComposite in="color" in2="offset" operator="in" />
+          <feMerge>
+            <feMergeNode in="offset" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- ROYAL ORNAMENTAL FLOURISHES (tapered gold ribbons, no frame or border) -->
+      <!-- ROYAL ORNAMENTAL FLOURISHES — layered gold ribbons with tapered ends, metallic depth, no frame or border -->
+      <g class="ornaments" fill="none" stroke-linecap="round">
+
+        <!-- Graceful rising ribbon above the first Bengali letter (left side) -->
+        <path d="M 150,640 Q 90,490 140,370 Q 180,300 260,340" stroke-width="18" stroke="#0a140c" opacity="0.45" filter="url(#ornShadow)" mask="url(#mTaperY)" />
+        <path d="M 150,640 Q 90,490 140,370 Q 180,300 260,340" stroke-width="16" stroke="url(#gradOrnament)" mask="url(#mTaperY)" />
+        <path d="M 150,640 Q 90,490 140,370 Q 180,300 260,340" stroke-width="4" stroke="#5c3a10" stroke-opacity="0.5" mask="url(#mTaperY)" />
+        <path d="M 150,640 Q 90,490 140,370 Q 180,300 260,340" stroke-width="5" stroke="#FFF4C9" stroke-opacity="0.85" mask="url(#mTaperY)" />
+        <path d="M 260,340 Q 220,310 250,285 Q 290,305 280,335" stroke-width="3.5" stroke="url(#gradOrnament)" />
+
+        <!-- Flowing ribbon curve on the right side -->
+        <path d="M 910,640 Q 1010,490 970,370 Q 920,300 820,390 Q 740,500 690,610" stroke-width="17" stroke="#0a140c" opacity="0.45" filter="url(#ornShadow)" mask="url(#mTaperY)" />
+        <path d="M 910,640 Q 1010,490 970,370 Q 920,300 820,390 Q 740,500 690,610" stroke-width="15" stroke="url(#gradOrnament)" mask="url(#mTaperY)" />
+        <path d="M 910,640 Q 1010,490 970,370 Q 920,300 820,390 Q 740,500 690,610" stroke-width="3.6" stroke="#5c3a10" stroke-opacity="0.5" mask="url(#mTaperY)" />
+        <path d="M 910,640 Q 1010,490 970,370 Q 920,300 820,390 Q 740,500 690,610" stroke-width="4.6" stroke="#FFF4C9" stroke-opacity="0.82" mask="url(#mTaperY)" />
+        <path d="M 820,390 Q 860,360 835,335 Q 795,355 805,385" stroke-width="3.5" stroke="url(#gradOrnament)" />
+
+        <!-- Curved ribbon swash underneath the title -->
+        <path d="M 90,650 Q 500,750 910,650" stroke-width="20" stroke="#0a140c" opacity="0.45" filter="url(#ornShadow)" mask="url(#mTaperX)" />
+        <path d="M 90,650 Q 500,750 910,650" stroke-width="18" stroke="url(#gradOrnament)" mask="url(#mTaperX)" />
+        <path d="M 90,650 Q 500,750 910,650" stroke-width="4" stroke="#5c3a10" stroke-opacity="0.5" mask="url(#mTaperX)" />
+        <path d="M 90,650 Q 500,750 910,650" stroke-width="5.2" stroke="#FFF4C9" stroke-opacity="0.78" mask="url(#mTaperX)" />
+
+        <!-- End curls -->
+        <path d="M 120,720 Q 70,745 110,755 Q 155,745 195,720" stroke-width="4.5" stroke="url(#gradOrnament)" />
+        <path d="M 880,720 Q 930,745 890,755 Q 845,745 805,720" stroke-width="4.5" stroke="url(#gradOrnament)" />
+
+      </g>
+
+      <!-- Flourish terminals — polished metallic jewels at the ribbon ends -->
+      <g class="orn-terms" fill="url(#radTerm)">
+        <circle class="orn-term" cx="260" cy="340" r="6" />
+        <circle class="orn-term" cx="820" cy="390" r="5.5" />
+        <circle class="orn-term" cx="195" cy="720" r="5" />
+        <circle class="orn-term" cx="805" cy="720" r="5" />
+      </g>
+
+      <!-- SCULPTED METALLIC BENGALI WORDMARK: মৌবন -->
+      <text class="layer-shadow" x="500" y="384" text-anchor="middle" dy="0.30em">মৌবন</text>
+      <text class="layer-bevel" x="500" y="386" text-anchor="middle" dy="0.30em">মৌবন</text>
+      <text class="layer-main" x="500" y="382" text-anchor="middle" dy="0.30em">মৌবন</text>
+      <text class="layer-shine" x="500" y="380" text-anchor="middle" dy="0.30em">মৌবন</text>
+      <text class="layer-rim" x="500" y="382" text-anchor="middle" dy="0.30em">মৌবন</text>
+    </svg>
+
+    <canvas class="canvas-bees"></canvas>
+  </div>
+</div>
+
+<script>
+  /* Animated honeybees flying around the Bengali title.
+     Recognizable anatomy: rounded dark head, dark eyes with glints, golden thorax,
+     segmented abdomen with three dark brown stripes, two translucent wings with veins,
+     antennae with bulbs, tiny legs. Bees follow natural curved flight paths around the
+     lettering so they frame the wordmark without hiding it. */
+  (function () {
+    var canvas = document.querySelector(".canvas-bees");
+    var ctx = canvas.getContext("2d", { alpha: true });
+    var w = 0, h = 0, dpr = 1, bees = [], raf = 0, running = true;
+
+    function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
+
+    function resize() {
+      var rect = canvas.parentElement.getBoundingClientRect();
+      w = Math.max(280, Math.round(rect.width));
+      h = Math.max(160, Math.round(rect.height));
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawWing(dx, dy, rot, wingLift) {
+      ctx.save();
+      ctx.translate(dx, dy);
+      ctx.rotate(rot);
+      ctx.scale(1, wingLift);
+      ctx.beginPath(); ctx.ellipse(0, 0, 3.6, 2.4, 0, 0, 6.283185); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, -1.8); ctx.quadraticCurveTo(1.6, 0, 0, 1.8); ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawBee(x, y, theta, size, flap, alpha, wingAlpha) {
+      var s = size / 18;
+      var wingFlap = flap * 0.26;
+      var wingLift = 0.82 + Math.abs(wingFlap) * 0.22;
+
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.translate(x, y);
+      ctx.rotate(theta);
+      ctx.scale(s, s);
+
+      // Abdomen: three rounded golden segments
+      ctx.fillStyle = "#e8b85c";
+      ctx.beginPath(); ctx.ellipse(-0.8, 0.9, 3.4, 3.0, 0, 0, 6.283185); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(-4.2, 0.9, 3.4, 3.0, 0, 0, 6.283185); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(-7.6, 0.8, 3.0, 2.7, 0, 0, 6.283185); ctx.fill();
+
+      // Three distinct dark stripes across the segmented abdomen
+      ctx.fillStyle = "#3d2a14";
+      ctx.beginPath(); ctx.ellipse(-2.5, 0.9, 3.8, 2.4, 0, 0, 6.283185); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(-5.9, 0.9, 3.8, 2.4, 0, 0, 6.283185); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(-9.3, 0.8, 3.4, 2.1, 0, 0, 6.283185); ctx.fill();
+
+      // Thorax: golden, fuzzy look
+      ctx.fillStyle = "#c9a23c";
+      ctx.beginPath(); ctx.ellipse(2.2, 0.2, 5.2, 4.0, 0, 0, 6.283185); ctx.fill();
+      ctx.strokeStyle = "#b0842a"; ctx.lineWidth = 0.5; ctx.stroke();
+
+      // Head: rounded dark brown
+      ctx.fillStyle = "#2b2212";
+      ctx.beginPath(); ctx.ellipse(8.2, -0.2, 3.4, 2.9, 0, 0, 6.283185); ctx.fill();
+
+      // Eyes: two clearly visible dark dots with glints
+      ctx.fillStyle = "#140c07";
+      ctx.beginPath(); ctx.ellipse(10.4, -1.2, 1.1, 1.1, 0, 0, 6.283185); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(10.4, 0.9, 1.1, 1.1, 0, 0, 6.283185); ctx.fill();
+      ctx.fillStyle = "#d8e4c6";
+      ctx.beginPath(); ctx.ellipse(10.7, -1.45, 0.35, 0.35, 0, 0, 6.283185); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(10.7, 0.65, 0.35, 0.35, 0, 0, 6.283185); ctx.fill();
+
+      // Antennae with tiny bulbs
+      ctx.strokeStyle = "#2b2212"; ctx.lineWidth = 0.8; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(9.8, -1.9); ctx.bezierCurveTo(10.8, -3.0, 12.6, -4.2, 14.0, -5.2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(9.8, 1.7); ctx.bezierCurveTo(10.8, 3.0, 12.6, 4.2, 14.0, 5.2); ctx.stroke();
+      ctx.fillStyle = "#140c07";
+      ctx.beginPath(); ctx.ellipse(14.0, -5.2, 0.6, 0.6, 0, 0, 6.283185); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(14.0, 5.2, 0.6, 0.6, 0, 0, 6.283185); ctx.fill();
+
+      // Wings: two translucent champagne wings with veins
+      ctx.globalAlpha = wingAlpha;
+      ctx.fillStyle = "rgba(250, 244, 218, 0.66)";
+      ctx.strokeStyle = "rgba(190, 165, 110, 0.5)";
+      ctx.lineWidth = 0.5;
+      drawWing(-1.6, -5.6, -0.7 + wingFlap, wingLift);
+      drawWing(3.4, -5.6, 0.7 - wingFlap, wingLift);
+
+      // Legs: tiny dark legs
+      ctx.globalAlpha = alpha * 0.55;
+      ctx.strokeStyle = "#2b2212"; ctx.lineWidth = 0.7; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(-1.2, 2.5); ctx.lineTo(-2.8, 4.2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-2.8, 3.0); ctx.lineTo(-4.6, 4.8); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-1.6, 3.8); ctx.lineTo(-3.2, 5.6); ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function build() {
+      resize();
+      var isMobile = w < 430;
+      var isTablet = w >= 430 && w < 768;
+      var count = isMobile ? 7 : isTablet ? 8 : 10;
+      var cx = w / 2;
+      var cy = h * 0.43;
+      // Safe orbit margins keep every bee outside the central title silhouette.
+      var orbitMinRx = isMobile ? 0.34 : isTablet ? 0.30 : 0.28;
+      var orbitMaxRx = isMobile ? 0.46 : isTablet ? 0.42 : 0.40;
+      var orbitMinRy = isMobile ? 0.20 : isTablet ? 0.18 : 0.16;
+      var orbitMaxRy = isMobile ? 0.30 : isTablet ? 0.28 : 0.24;
+      bees = Array.from({ length: count }, function (_, i) {
+        var baseAngle = (i / count) * Math.PI * 2;
+        return {
+          angle: baseAngle,
+          cx: cx, cy: cy,
+          rx: w * (orbitMinRx + (i % 4) * (orbitMaxRx - orbitMinRx) / 3),
+          ry: h * (orbitMinRy + (i % 3) * (orbitMaxRy - orbitMinRy) / 2),
+          speed: 0.06 + (i % 5) * 0.035,
+          direction: i % 2 === 0 ? 1 : -1,
+          seed: i * 4.1,
+          flapPhase: i * 2.3,
+          tilt: Math.sin(i) * 0.3,
+          depth: i % 3
+        };
+      });
+    }
+
+    function frame(ts) {
+      raf = 0;
+      if (!running || document.hidden) return;
+      ctx.clearRect(0, 0, w, h);
+
+      var ordered = bees.slice().sort(function (a, b) { return a.depth - b.depth; });
+      for (var i = 0; i < ordered.length; i++) {
+        var b = ordered[i];
+        b.angle += b.speed * b.direction * 0.0016;
+        var ang = b.angle;
+        var weave = Math.sin(ang * 2.0 + b.seed * 0.5) * 5;
+        var sway = Math.sin(ts * 0.0012 + b.seed) * 4;
+        var lift = Math.cos(ts * 0.0010 + b.seed * 1.3) * 2.5;
+        var x = b.cx + Math.cos(ang) * b.rx + sway + weave * 0.3;
+        var y = b.cy + Math.sin(ang * 1.06 + b.tilt) * b.ry + weave + lift;
+        var theta = ang + Math.PI / 2 + Math.sin(ts * 0.001 + b.seed) * 0.12;
+        var flap = Math.sin(ts * 0.02 + b.flapPhase) * 1.2;
+        var wingAlpha = 0.5 + Math.abs(Math.sin(ts * 0.02 + b.flapPhase)) * 0.25;
+        var isMobile = w < 430;
+        var isTablet = w >= 430 && w < 768;
+        var sizeByDepth = isMobile ? [12, 14, 15] : isTablet ? [15, 17, 19] : [18, 20, 22];
+        var minSize = isMobile ? 11 : isTablet ? 14 : 17;
+        var maxSize = isMobile ? 16 : isTablet ? 19 : 22;
+        var size = clamp(sizeByDepth[b.depth] + Math.sin(ts * 0.0007 + b.seed) * 1.0, minSize, maxSize);
+        var alphaMult = b.depth === 2 ? 1.0 : b.depth === 1 ? 0.9 : 0.82;
+        drawBee(x, y, theta, size, flap, 0.92 * alphaMult, wingAlpha * alphaMult);
+      }
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start() { stop(); build(); raf = requestAnimationFrame(frame); }
+    function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+
+    window.addEventListener("resize", function () {
+      clearTimeout(window.__resizeTid);
+      window.__resizeTid = setTimeout(start, 150);
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop();
+      else if (!raf) start();
+    });
+    start();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Moubon honeybee mark">
+<defs>
+  <linearGradient id="beeGold" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#fff0b8"/><stop offset=".42" stop-color="#e8b34c"/><stop offset="1" stop-color="#a96c22"/>
+  </linearGradient>
+  <linearGradient id="beeWing" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#fff8df" stop-opacity=".96"/><stop offset="1" stop-color="#d9e5c9" stop-opacity=".52"/>
+  </linearGradient>
+</defs>
+<g stroke-linecap="round" stroke-linejoin="round">
+  <path d="M24 27C14 10 4 14 7 24c2 7 9 10 18 8" fill="url(#beeWing)" stroke="#8b642e" stroke-width="1.6"/>
+  <path d="M31 26C36 9 51 9 52 19c1 7-7 11-17 12" fill="url(#beeWing)" stroke="#8b642e" stroke-width="1.6"/>
+  <path d="M16 36c0-8 8-14 18-14 9 0 16 6 16 13 0 8-8 14-18 14-9 0-16-5-16-13Z" fill="url(#beeGold)" stroke="#51351a" stroke-width="2.2"/>
+  <path d="M25 24c4 5 4 19 0 24M34 22c4 7 4 20 0 27M43 25c3 6 3 15 0 21" fill="none" stroke="#51351a" stroke-width="3.1"/>
+  <ellipse cx="49" cy="34" rx="7.5" ry="7.1" fill="#302318" stroke="#e9bd62" stroke-width="1.2"/>
+  <circle cx="51.2" cy="31.7" r="1.45" fill="#fff0c4"/>
+  <path d="M47 27c-1-5 1-7 4-9M51 27c3-4 6-4 8-3M20 45l-4 7M29 48l-1 7M38 48l3 6" fill="none" stroke="#51351a" stroke-width="1.8"/>
+  <path d="M17 33l-5-2" fill="none" stroke="#51351a" stroke-width="1.5"/>
+</g>
+</svg>

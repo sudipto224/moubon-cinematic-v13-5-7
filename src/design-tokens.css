@@ -1,0 +1,59 @@
+/* Shared Moubon design tokens: colour, spacing, shape, shadow and motion. */
+:root {
+  --night: #061c14;
+  --forest-edge: #0a371f;
+  --forest-deep: #082b1b;
+  --forest-mid: #173d29;
+  --forest-moss: #65704a;
+  --mud-wet: #343d31;
+  --mud-silt: #75664a;
+  --water-deep: #19392d;
+  --water-mid: #2e5648;
+  --water-center: #3d6b5d;
+  --water-edge: #214638;
+  --water-glint: rgba(250, 220, 155, .52);
+  --water-foam: rgba(218, 226, 193, .42);
+  --boat-rim: #f6d28a;
+  --boat-shadow: rgba(2, 17, 10, .58);
+  --gold: #c18b32;
+  --light-gold: #f1d18b;
+  --honey: #e6ad43;
+  --cream: #f7efd9;
+  --muted-cream: #d7dfc9;
+  --header-height: 75px;
+
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 12px 32px rgba(0, 14, 8, .24);
+  --shadow-deep: 0 22px 64px rgba(0, 12, 7, .42);
+  --shadow-gold: 0 10px 30px rgba(176, 126, 39, .18);
+
+  --motion-fast: 160ms;
+  --motion-base: 420ms;
+  --motion-slow: 900ms;
+  --ease-standard: cubic-bezier(.2, .7, .25, 1);
+  --ease-emphasized: cubic-bezier(.18, .78, .22, 1);
+  --ease-soft: cubic-bezier(.22, .62, .32, 1);
+
+  --z-base: 1;
+  --z-story: 12;
+  --z-boat: 24;
+  --z-header: 200;
+  --z-progress: 201;
+  --z-modal: 500;
+}
