@@ -1,5 +1,5 @@
 /** মৌবন সাইট কনফিগারেশন — প্রকাশের আগে নিজের যাচাইকৃত তথ্য যোগ করুন। */
-export const SITE_URL = 'https://your-domain.example';
+export const SITE_URL = 'https://moubon-honey.vercel.app';
 
 export const MOUBON_CONFIG = Object.freeze({
   brand: 'মৌবন',

@@ -213,7 +213,7 @@ test('SEO, accessibility hooks and responsive layouts are retained', () => {
   assert.match(css, /\.scene-description \{ font-size: 14px/);
   assert.match(css, /\.scene-label \{ font-size: 10px/);
   assert.match(css, /\.scene-sound \{ margin-top: 5px; font-size: 12px/);
-  assert.equal(SITE_URL, 'https://your-domain.example');
+  assert.equal(SITE_URL, 'https://moubon-honey.vercel.app');
 });
 
 test('checkout fields and local order confirmation are wired', () => {
